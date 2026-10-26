@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meal Africa | Identity &amp; Value</title>
+<meta name="description" content="Meal Africa serves grilled fish (kroka), grilled chicken, bole and loaded fries in Owerri. Order on WhatsApp.">
+<meta name="theme-color" content="#0f3d2a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f3d2a'/%3E%3Ctext x='32' y='46' font-size='38' text-anchor='middle' fill='%23f5a05a' font-family='Georgia,serif' font-weight='700'%3EM%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Meal Africa | Identity &amp; Value">
+<meta property="og:description" content="Taste where we come from. Order on WhatsApp.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* ===== COLOURS & FONTS (edit brand look here) ===== */
+:root{
+  --green:#0f3d2a; --green-2:#17553b; --orange:#e8731a; --orange-dark:#c45e0e; --orange-light:#f5a05a; --btn:#b85309; --btn-hover:#9a4407; --ink-accent:#b85309;
+  --bg:#fbf7f0; --ink:#14261c; --muted:#58665d; --card:#ffffff; --line:#e6dfd2;
+  --serif:'Fraunces',Georgia,serif; --sans:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0d1912;--ink:#f3ede2;--muted:#a9b5ac;--card:#122219;--line:#25392d;--orange:#f08a3a;--ink-accent:#f08a3a}
+}
+:root[data-theme="dark"]{--bg:#0d1912;--ink:#f3ede2;--muted:#a9b5ac;--card:#122219;--line:#25392d;--orange:#f08a3a;--ink-accent:#f08a3a}
+html{scroll-behavior:smooth;scroll-padding-top:calc(68px + env(safe-area-inset-top,0px));overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.65;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:var(--serif);line-height:1.08;margin:0;letter-spacing:-.015em;font-weight:500}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:68px 0}
+.eyebrow{display:flex;align-items:center;gap:10px;font-weight:800;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-accent)}
+.eyebrow::before{content:"";width:28px;height:2px;background:currentColor}
+h2{font-size:clamp(2rem,8vw,3.2rem);margin:14px 0 14px}
+h2 em{font-style:italic;color:var(--ink-accent)}
+.hero h1 em{font-style:italic;color:var(--orange-light)}
+.hero .eyebrow,.order .eyebrow,.order h2 em{color:var(--orange-light)}
+.lead{color:var(--muted);max-width:52ch}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 26px;border-radius:999px;border:2px solid transparent;font:800 .95rem var(--sans);text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn-orange{background:var(--btn);color:#fff}
+.btn-orange:hover{background:var(--btn-hover)}
+.btn-line{border-color:var(--green);color:var(--green);background:transparent}
+.btn-line:hover{background:var(--green);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn-line{border-color:var(--orange);color:var(--orange)}:root:not([data-theme="light"]) .btn-line:hover{background:var(--orange);color:#fff}}
+.link{font-weight:800;text-decoration:none;border-bottom:2px solid var(--orange);padding:6px 0}
+
+/* ===== NAV ===== */
+header{position:sticky;top:0;z-index:20;background:var(--green);color:#fff;padding-top:env(safe-area-inset-top,0px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:inline-flex;align-items:center;min-height:44px;font:700 1.35rem var(--serif);letter-spacing:-.01em;text-decoration:none}
+.logo span{color:var(--orange)}
+.nav-right{display:flex;align-items:center;gap:6px}
+.nav-right .btn{min-height:40px;padding:0 18px;font-size:.85rem}
+.burger{width:44px;height:44px;border:0;background:none;color:#fff;cursor:pointer;font-size:1.5rem}
+.links{display:none;position:absolute;left:0;right:0;top:100%;background:var(--green);padding:6px 20px 18px;border-top:1px solid rgba(255,255,255,.12)}
+.links.open{display:block}
+.links a{display:block;padding:15px 0;text-decoration:none;font-weight:600;border-bottom:1px solid rgba(255,255,255,.1)}
+@media (min-width:820px){
+  .burger{display:none}
+  .links{display:flex;position:static;padding:0;border:0;gap:30px;background:none;margin-left:auto;margin-right:24px}
+  .links a{border:0;padding:0;font-size:.92rem;opacity:.85}
+  .links a:hover{opacity:1;color:#ffd2ad}
+}
+
+/* ===== HERO ===== */
+.hero{background:var(--green);color:#fff;padding:44px 0 64px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;gap:40px}
+.tag{display:inline-block;margin-bottom:20px;font-weight:800;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#ffd2ad}
+.hero h1{font-size:clamp(2.9rem,13.5vw,5.4rem);font-weight:700;line-height:1}
+.hero p.sub{margin:22px 0 30px;max-width:40ch;color:#d4e3da;font-size:1.08rem}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.cta-row .link{color:#fff}
+.note{margin-top:20px;font-size:.82rem;color:#9fbdad}
+.hero-img{position:relative;aspect-ratio:4/5;max-width:420px;width:100%;margin-inline:auto;border-radius:999px 999px 28px 28px;background:var(--green-2);overflow:hidden;display:grid;place-items:center;text-align:center;color:#b5cdbf;font-size:.85rem;padding:30px;border:2px solid var(--orange)}
+.hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (min-width:860px){.hero{padding:80px 0}.hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center}}
+
+/* ===== MENU ===== */
+.grid{display:grid;gap:22px;margin-top:38px;grid-template-columns:1fr}
+@media (min-width:600px){.grid{grid-template-columns:1fr 1fr}}
+@media (min-width:960px){.grid{grid-template-columns:repeat(3,1fr)}}
+.dish{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s}
+.dish:hover{border-color:var(--orange)}
+.dish-img{position:relative;aspect-ratio:5/4;background:var(--green);display:grid;place-items:center;color:#c5d8cc;font-size:.78rem;overflow:hidden}
+.dish:nth-child(even) .dish-img{background:var(--green-2)}
+.dish-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dish-img b{font:500 italic 3.4rem var(--serif);color:var(--orange-light);line-height:1}
+.dish-img small{display:block;margin-top:6px;letter-spacing:.08em;text-transform:uppercase;font-size:.65rem}
+.dish-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.dish h3{font-size:1.45rem;font-weight:700}
+.dish p{color:var(--muted);font-size:.93rem}
+.dish-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:16px}
+.price{font-weight:800;font-size:.9rem;color:var(--ink-accent)}
+.dish .btn{min-height:44px;padding:0 20px;font-size:.88rem}
+
+/* ===== STORY (light) ===== */
+.story{background:var(--card);border-block:1px solid var(--line)}
+.story .wrap{display:grid;gap:40px}
+.story h2{font-size:clamp(2.1rem,8.5vw,3.6rem)}
+.story p.body{color:var(--muted);max-width:52ch;margin-top:8px}
+.pillars{display:grid;gap:0}
+.pillar{padding:20px 0;border-top:1px solid var(--line)}
+.pillar:last-child{border-bottom:1px solid var(--line)}
+.pillar h3{font-size:1.5rem;color:var(--green)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .pillar h3{color:var(--orange)}}
+.pillar p{color:var(--muted);font-size:.93rem;margin-top:2px}
+@media (min-width:860px){.story .wrap{grid-template-columns:1.2fr .8fr;align-items:end}}
+
+/* ===== ORDER (green) ===== */
+.order{background:var(--green);color:#fff}
+.order .lead{color:#d4e3da}
+.order-box{background:var(--card);color:var(--ink);border-radius:22px;padding:22px;margin-top:32px;display:grid;gap:26px}
+@media (min-width:860px){.order-box{grid-template-columns:1fr 1fr;padding:36px;gap:40px}}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:10px}
+legend{font-weight:800;margin-bottom:12px}
+.check{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;cursor:pointer;min-height:50px;font-weight:600}
+.check:has(input:checked){border-color:var(--orange);background:color-mix(in srgb,var(--orange) 8%,var(--card))}
+.check input{width:20px;height:20px;accent-color:var(--orange)}
+label.f{display:grid;gap:6px;font-weight:600;font-size:.9rem}
+input[type=text],textarea,select{width:100%;min-height:48px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:inherit;font-size:1rem}
+textarea{min-height:92px;resize:vertical}
+.steps{display:grid;gap:12px;margin:26px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:12px;align-items:center;color:#d4e3da;font-size:.95rem}
+.steps li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.8rem}
+
+/* ===== REVIEWS ===== */
+.reviews{display:grid;gap:18px;margin-top:34px}
+@media (min-width:760px){.reviews{grid-template-columns:repeat(3,1fr)}}
+.review{border:1.5px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:14px;align-content:start;background:var(--card)}
+.review q{font:italic 500 1.2rem/1.35 var(--serif);quotes:none}
+.review small{color:var(--muted);font-weight:600}
+.review.demo{border-style:dashed;background:transparent}
+.review img,.review video{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;background:var(--green)}
+.review video{aspect-ratio:auto;max-height:420px}
+.badge{justify-self:start;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fine{font-size:.85rem;color:var(--muted)}
+.muted{opacity:.6}
+.check{padding:4px 10px 4px 14px;cursor:default}
+.check label{display:flex;align-items:center;gap:12px;flex:1;min-height:48px;cursor:pointer}
+.qty{width:auto;min-width:64px;min-height:40px;padding:6px 8px}
+footer .row a{display:inline-block;padding:8px 0;text-decoration:underline}
+
+.skip{position:absolute;left:-999px;top:0;background:#fff;color:#000;padding:12px 16px;z-index:100;font-weight:700}
+.skip:focus{left:8px;top:8px}
+.hero-mark{font:700 italic clamp(2.6rem,12vw,4rem)/1 var(--serif);color:var(--orange-light);letter-spacing:-.02em}
+.hero-mark small{display:block;font:800 .7rem var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#d4e3da;margin-top:14px;font-style:normal}
+.review .btn{justify-self:start}
+/* ===== TRUST & RETENTION ===== */
+[hidden]{display:none!important}
+.band{background:var(--card);border-block:1px solid var(--line)}
+.again-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.moments{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin-top:32px}
+@media (min-width:760px){.moments{grid-template-columns:repeat(3,1fr)}}
+.moment{margin:0;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
+.moment img,.moment video{width:100%;aspect-ratio:1;object-fit:cover;background:var(--green)}
+.moment figcaption{padding:10px 12px;font-size:.85rem;font-weight:600}
+.moment figcaption span{color:var(--muted);font-weight:400}
+.moment.demo{aspect-ratio:1;border-style:dashed;display:grid;place-content:center;gap:8px;text-align:center;padding:12px;color:var(--muted);background:transparent;font-size:.8rem}
+.qgrid{display:grid;gap:16px;margin-top:30px}
+@media (min-width:760px){.qgrid{grid-template-columns:repeat(3,1fr)}}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:10px;align-content:start}
+.qcard h3{font-size:1.3rem;font-weight:700}
+.qcard p{color:var(--muted);font-size:.93rem}
+.qcard a:not(.btn){color:var(--ink);font-weight:700;display:inline-block;padding:8px 0}
+.faq{margin-top:26px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:700;padding:14px 0;min-height:48px}
+.faq details p{color:var(--muted);padding:0 0 14px}
+
+/* ===== FOOTER ===== */
+footer{background:#0a2a1d;color:#d4e3da;padding:56px 0 calc(32px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:grid;gap:30px}
+@media (min-width:760px){footer .wrap{grid-template-columns:1.4fr 1fr 1fr}}
+footer h3{font:800 .72rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+footer a,footer .row{display:block;padding:8px 0;text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+.brandline{font:700 1.7rem var(--serif);color:#fff}
+.copy{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);padding-top:20px;font-size:.8rem;opacity:.7}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:#111;color:#fff;padding:14px 20px;border-radius:14px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:50;width:min(92%,420px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#top">Skip to content</a>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" id="logo" href="#top" aria-label="Home">Meal<span>.</span>Africa</a>
+    <nav class="links" id="links" aria-label="Main">
+      <a href="#menu">Menu</a><a href="#story">Our Story</a><a href="#order">Order</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-orange" href="#order">Order Now</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="links">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="tag" id="heroTag">Identity &amp; Value</span>
+        <h1>Taste where <em>we come from.</em></h1>
+        <p class="sub">Kroka, grilled chicken, bole and loaded fries. A small menu with a big sense of home.</p>
+        <div class="cta-row">
+          <a class="btn btn-orange" href="#order">Order Now</a>
+          <a class="link" href="#menu">See the menu</a>
+        </div>
+        <p class="note">Six dishes on the menu today.</p>
+      </div>
+      <!-- HOW TO ADD THE HERO PHOTO: set heroImage in CONFIG below, e.g. "images/hero.jpg" (portrait photo works best) -->
+      <div class="hero-img" id="heroImg" aria-hidden="true"><span class="hero-mark">Meal<br>Africa<small>Identity &amp; Value</small></span></div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <span class="eyebrow">The Menu</span>
+      <h2>Six dishes. <em>Made to be remembered.</em></h2>
+      <p class="lead">Tap “Order” on any dish and we’ll open WhatsApp for you.</p>
+      <div class="grid" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Our Story</span>
+        <h2>African food is identity <em>you can taste.</em></h2>
+        <p class="body">Meal Africa is built on a simple belief: our cuisine carries creativity, culture and real value, and it deserves to be seen that way. We’re starting small, with a short menu done properly, and building toward the recognition African food has earned.</p>
+        <!-- EDIT: add one or two sentences of your own founding story here. -->
+      </div>
+      <div class="pillars">
+        <div class="pillar"><h3>Identity</h3><p>Food that reflects where we come from.</p></div>
+        <div class="pillar"><h3>Value</h3><p>Real flavour and care in every plate.</p></div>
+        <div class="pillar"><h3>Recognition</h3><p>African cuisine, taken seriously worldwide.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="order" id="order">
+    <div class="wrap">
+      <span class="eyebrow">Place an Order</span>
+      <h2>Hungry? <em>Order in a minute.</em></h2>
+      <p class="lead">Pick your meals and we’ll open WhatsApp with your order ready to send.</p>
+      <div class="order-box">
+        <form id="orderForm" novalidate>
+          <fieldset><legend>1. Pick your meals</legend><div id="checks" style="display:grid;gap:10px"></div></fieldset>
+        </form>
+        <div style="display:grid;gap:14px;align-content:start">
+          <label class="f">2. Your name <input type="text" id="oName" placeholder="Your name" autocomplete="name"></label>
+          <label class="f">Pickup or delivery?
+            <select id="oType"><option>Pickup</option><option>Delivery</option></select></label>
+          <label class="f">Notes (optional) <textarea id="oNote" placeholder="Quantity, spice level, delivery location…"></textarea></label>
+          <button class="btn btn-orange" id="sendOrder" type="button">3. Send order on WhatsApp</button>
+          <p class="fine" id="orderNote" hidden></p>
+        </div>
+      </div>
+      <ol class="steps"><li>Choose your meals</li><li>Send your order on WhatsApp</li><li>We confirm price and delivery details with you</li></ol>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <span class="eyebrow">Kind Words</span>
+      <h2>What our customers <em>say.</em></h2>
+      <p class="lead" id="reviewLead"></p>
+      <div class="reviews" id="reviewList"></div>
+    </div>
+  </section>
+  <section id="moments" style="padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow">Customer Moments</span>
+      <h2>Your plates, <em>your moments.</em></h2>
+      <p class="lead" id="momentLead"></p>
+      <div class="moments" id="momentList"></div>
+      <p class="fine" style="margin-top:18px">We only share customers’ names, photos and videos with their permission.</p>
+    </div>
+  </section>
+
+  <section class="band" id="again">
+    <div class="wrap">
+      <span class="eyebrow">Welcome Back</span>
+      <h2>Back for <em>seconds?</em></h2>
+      <p class="lead">If you’ve eaten with us before, thank you. Tell us what you’re craving and we’ll pick it up from there on WhatsApp.</p>
+      <div class="again-row">
+        <a class="btn btn-orange" id="againOrder" data-wa href="#order">Order my usual again</a>
+        <a class="btn btn-line" id="againFeedback" data-wa href="#order">Share how we did</a>
+        <a class="btn btn-line" id="channelLink" href="#again" hidden>Get our updates on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="questions">
+    <div class="wrap">
+      <span class="eyebrow">Ask Us Anything</span>
+      <h2>Questions before <em>you order?</em></h2>
+      <p class="lead">Message us before you decide. We’re happy to help.</p>
+      <div class="qgrid">
+        <div class="qcard"><h3>Chat with us</h3><p>Ask about the menu, prices or delivery.</p><a class="btn btn-line" id="askBtn" data-wa href="#order">WhatsApp us</a></div>
+        <div class="qcard"><h3>Email</h3><p id="qMail"></p></div>
+        <div class="qcard"><h3>Find us</h3><p id="qLoc"></p><p id="qHours"></p></div>
+      </div>
+      <div class="faq">
+        <details><summary>How does ordering work?</summary><p>Choose your meals above and send the order on WhatsApp. We confirm availability, the total and delivery details with you.</p></details>
+        <details><summary>What are the prices?</summary><p>Prices appear on the menu once confirmed. If you don’t see one, message us and we’ll tell you.</p></details>
+        <details><summary>Can I ask a question first?</summary><p>Yes. Message us on WhatsApp or email us, and we’ll reply with an answer before you order.</p></details>
+        <details><summary>Will you share my photos or name?</summary><p>Only with your permission. We ask first, every time.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div><div class="brandline" id="fBrand">Meal Africa</div><p style="margin-top:6px" id="fTag">Identity &amp; Value.</p></div>
+    <div>
+      <h3>Contact</h3>
+      <div id="fContact"></div>
+    </div>
+    <div>
+      <h3>Follow us</h3>
+      <div id="fSocial"></div>
+    </div>
+    <p class="copy">© <span id="yr"></span> <span id="fBrand2">Meal Africa</span>. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================
+   1. EDIT HERE: YOUR DETAILS (keep the quote marks "")
+   ===================================================== */
+const CONFIG = {
+  businessName: "Meal Africa",
+  tagline: "Identity & Value.",
+  // WhatsApp number: international format, digits only, NO "+" and NO leading 0.
+  // Nigeria example: 0801 234 5678 becomes "2348012345678"
+  whatsapp: "2349116538499",
+  email: "mealafricaglobal@gmail.com",
+  location: "Amawire junction, after Orji flyover, Owerri",     // e.g. "Owerri, Imo State"
+  hours: "Weekday evenings",        // e.g. "Mon–Sat, 11am–9pm"
+  instagram: "https://instagram.com/mealafrica_ng",    // full link, e.g. "https://instagram.com/yourpage"
+  tiktok: "https://www.tiktok.com/@mealafrica_ng",
+  facebook: "",
+  whatsappChannel: "",  // OPTIONAL: your WhatsApp Channel link (https://whatsapp.com/channel/...). Leave "" to hide the button. Use a Channel, not a Group, so customers’ numbers stay private.
+  heroImage: ""     // e.g. "images/hero.jpg"
+};
+
+/* =====================================================
+   2. EDIT HERE: YOUR MENU
+   price: leave "" until confirmed, or write e.g. "₦3,500"
+   image: leave "" until you have THAT dish's photo, e.g. "images/kroka.jpg"
+   desc: short and factual. Replace with your own words about each dish.
+   ===================================================== */
+const MENU = [
+  { name:"Grilled fish (kroka)",    desc:"Fish grilled and served hot.",    price:"", image:"" },
+  { name:"Grilled chicken",         desc:"Chicken grilled and served hot.", price:"", image:"" },
+  { name:"Chicken and chips",       desc:"Chicken served with chips.",      price:"", image:"" },
+  { name:"Bole",                    desc:"Bole, served hot.",        price:"", image:"" },
+  { name:"Fries with pepper sauce", desc:"Fries served with pepper sauce.", price:"", image:"" },
+  { name:"Loaded fries",            desc:"Fries with toppings.", price:"", image:"" }
+];
+
+/* =====================================================
+   3. EDIT HERE: CUSTOMER REVIEWS (REAL ONES ONLY)
+   Copy this pattern inside the [ ] below, one line per genuine review:
+   { approved:true, name:"Chika", quote:"Their exact words", photo:"images/reviews/chika.jpg" },
+   - approved:true = the customer said YES to being shown. Without it the review stays hidden.
+   - name: first name or a nickname they approve. NEVER a phone number.
+   - photo, video and poster are optional.
+   ===================================================== */
+const REVIEWS = [
+];
+
+/* =====================================================
+   4. EDIT HERE: CUSTOMER FOOD PHOTOS & VIDEOS (APPROVED ONLY)
+   { approved:true, photo:"images/moments/one.jpg", caption:"Grilled fish (kroka)", credit:"Chika" },
+   { approved:true, video:"images/moments/two.mp4", poster:"images/moments/two.jpg", caption:"Loaded fries", credit:"Tolu" },
+   - credit is optional. Remove it if the customer wants to stay anonymous.
+   ===================================================== */
+const GALLERY = [
+];
+
+/* =====================================================
+   Code below works automatically. You do not need to edit it.
+   ===================================================== */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const N = CONFIG.businessName;
+const NOT_READY = "Ordering on WhatsApp is being set up. Please check back soon.";
+const pad = i => String(i + 1).padStart(2, "0");
+
+function waNumber(){
+  const n = String(CONFIG.whatsapp).replace(/[\s+\-()]/g, "");
+  return /^[1-9]\d{7,14}$/.test(n) ? n : "";
+}
+function waLink(text){
+  const n = waNumber();
+  return n ? "https://wa.me/" + n + "?text=" + encodeURIComponent(text) : "";
+}
+const ready = !!waNumber();
+if(!ready) console.warn(N + ": set CONFIG.whatsapp to your number (digits only, international format, e.g. 2348012345678).");
+
+const toast = msg => { const t=$("#toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toast.t); toast.t=setTimeout(()=>t.classList.remove("show"),4200); };
+const dishMsg = (d,q=1) => `Hello ${N}! I\u2019d like to order ${q} x ${d.name}${d.price?" ("+d.price+")":""}. Please let me know if it\u2019s available and the total. Thank you.`;
+
+/* Branding */
+document.title = N + " | " + CONFIG.tagline.replace(/\.$/,"");
+const [w1,...wr] = N.split(" ");
+$("#logo").innerHTML = wr.length ? esc(w1)+"<span>.</span>"+esc(wr.join(" ")) : esc(N);
+$("#heroTag").textContent = CONFIG.tagline.replace(/\.$/,"");
+$("#fBrand").textContent = N; $("#fTag").textContent = CONFIG.tagline; $("#fBrand2").textContent = N;
+$("#yr").textContent = new Date().getFullYear();
+
+/* Menu */
+$("#menuGrid").innerHTML = MENU.map((d,i)=>`
+  <article class="dish">
+    <div class="dish-img" data-i="${i}">${d.image?`<img src="${esc(d.image)}" alt="${esc(d.name)}" loading="lazy" width="500" height="400">`:`<div><b>${pad(i)}</b><small>Photo coming soon</small></div>`}</div>
+    <div class="dish-body">
+      <h3>${esc(d.name)}</h3><p>${esc(d.desc)}</p>
+      <div class="dish-foot"><span class="price">${esc(d.price||"Ask for today\u2019s price")}</span>
+      <a class="btn btn-line" data-wa href="${esc(waLink(dishMsg(d))||"#order")}"${ready?' target="_blank" rel="noopener"':""} aria-label="Order ${esc(d.name)} on WhatsApp">Order</a></div>
+    </div>
+  </article>`).join("");
+
+/* Order form with quantities */
+$("#checks").innerHTML = MENU.map((d,i)=>`
+  <div class="check"><label><input type="checkbox" value="${i}"> ${esc(d.name)}</label>
+  <select class="qty" aria-label="Quantity of ${esc(d.name)}">${[1,2,3,4,5,6,7,8,9,10].map(n=>`<option>${n}</option>`).join("")}</select></div>`).join("");
+$("#checks").addEventListener("change",e=>{ if(e.target.classList.contains("qty")) e.target.closest(".check").querySelector("input").checked = true; });
+if(!ready){ const o=$("#orderNote"); o.hidden=false; o.textContent=NOT_READY+" For now, please use the contact details below."; }
+
+$("#sendOrder").addEventListener("click",()=>{
+  const rows=[...document.querySelectorAll("#checks .check")].filter(r=>r.querySelector("input").checked);
+  if(!rows.length){ toast("Please pick at least one meal."); return; }
+  const lines=rows.map(r=>`- ${r.querySelector(".qty").value} x ${MENU[r.querySelector("input").value].name}`);
+  const name=$("#oName").value.trim(), note=$("#oNote").value.trim();
+  let m=`Hello ${N}! I\u2019d like to order:\n${lines.join("\n")}\n\n${$("#oType").value}`;
+  if(name) m+=`\nName: ${name}`; if(note) m+=`\nNotes: ${note}`;
+  m+="\n\nPlease confirm availability and the total. Thank you.";
+  const url=waLink(m);
+  if(!url){ toast(NOT_READY); return; }
+  const w=window.open(url,"_blank"); if(w) w.opener=null; else location.href=url;
+});
+
+/* Any WhatsApp link: if number is not set, show a friendly message instead of a dead link */
+document.addEventListener("click",e=>{
+  const a=e.target.closest("a[data-wa]"); if(a && !ready){ e.preventDefault(); toast(NOT_READY); }
+});
+
+/* Reviews */
+function reviewCard(r,demo){
+  const media=(r.photo?`<img src="${esc(r.photo)}" alt="Photo from ${esc(r.name||"a customer")}" loading="lazy">`:"")
+    +(r.video?`<video controls playsinline preload="none" ${r.poster?`poster="${esc(r.poster)}" `:""}src="${esc(r.video)}"></video>`:"");
+  return `<article class="review${demo?" demo":""}">${demo?'<span class="badge">Placeholder, not a real review</span>':""}${media}${r.quote?`<q>${esc(r.quote)}</q>`:""}${r.name?`<small>${esc(r.name)}</small>`:""}</article>`;
+}
+const shown=REVIEWS.filter(r=>r.approved===true);
+$("#reviewLead").textContent = shown.length ? "Words from people who have tried our food." : "We\u2019re just getting started. Tried our food? We\u2019d love to hear from you.";
+$("#reviewList").innerHTML = shown.length ? shown.map(r=>reviewCard(r,false)).join("") : `<article class="review"><q>Be one of the first to tell us how we did.</q><a class="btn btn-line" id="reviewAsk" data-wa href="#order">Share your experience</a></article>`;
+
+/* Customer moments (approved photos and videos only) */
+const gal=GALLERY.filter(g=>g.approved===true&&(g.photo||g.video));
+$("#momentLead").textContent = "Real plates from real customers, shared with their permission.";
+$("#momentList").innerHTML = gal.map(g=>`<figure class="moment">${g.photo?`<img src="${esc(g.photo)}" alt="${esc(g.caption||"Customer food photo")}" loading="lazy">`:""}${g.video?`<video controls playsinline preload="none" ${g.poster?`poster="${esc(g.poster)}" `:""}src="${esc(g.video)}"></video>`:""}<figcaption>${esc(g.caption||"")}${g.credit?` <span>\u00b7 ${esc(g.credit)}</span>`:""}</figcaption></figure>`).join("");
+if(!gal.length) $("#moments").hidden = true;
+
+/* Repeat orders, questions and trust */
+function wire(id,text){ const a=$(id), u=waLink(text); if(u){ a.href=u; a.target="_blank"; a.rel="noopener"; } }
+wire("#againOrder",`Hello ${N}! I\u2019ve ordered before and I\u2019d like the same again. Please confirm availability and the total. Thank you.`);
+wire("#againFeedback",`Hello ${N}! I\u2019d like to share feedback about my last order. Please ask me before sharing my name, photos or videos publicly.`);
+if($("#reviewAsk")) wire("#reviewAsk",`Hello ${N}! I\u2019d like to share feedback about my order. Please ask me before sharing my name, photos or videos publicly.`);
+wire("#askBtn",`Hello ${N}! I have a question before I order: `);
+if(/^https?:\/\//.test(CONFIG.whatsappChannel)){ const c=$("#channelLink"); c.href=CONFIG.whatsappChannel; c.target="_blank"; c.rel="noopener"; c.hidden=false; }
+$("#qMail").innerHTML = CONFIG.email ? `<a href="mailto:${esc(CONFIG.email)}">${esc(CONFIG.email)}</a>` : "Use the WhatsApp button for the quickest reply.";
+$("#qLoc").textContent = CONFIG.location || "Message us on WhatsApp to ask where to find us.";
+$("#qHours").textContent = CONFIG.hours ? "Open: "+CONFIG.hours : "Message us on WhatsApp to ask about opening times.";
+
+/* Hero photo */
+const heroFallback='<span class="hero-mark">Meal<br>Africa<small>Identity &amp; Value</small></span>';
+if(CONFIG.heroImage){ $("#heroImg").removeAttribute("aria-hidden"); } if(CONFIG.heroImage) $("#heroImg").innerHTML=`<img src="${esc(CONFIG.heroImage)}" alt="${esc(N)} signature dish" fetchpriority="high" width="420" height="525">`;
+
+/* Broken images/videos: fall back gracefully instead of showing a broken icon */
+document.addEventListener("error",e=>{
+  const el=e.target; if(!el||(el.tagName!=="IMG"&&el.tagName!=="VIDEO")) return;
+  const dish=el.closest(".dish-img"), hero=el.closest(".hero-img");
+  if(dish) dish.innerHTML=`<div><b>${pad(+dish.dataset.i)}</b><small>Photo coming soon</small></div>`;
+  else if(hero){ hero.innerHTML=heroFallback; hero.setAttribute("aria-hidden","true"); }
+  else el.remove();
+},true);
+
+/* Footer */
+const row=(label,val,href)=>val?`<span class="row">${label}: ${href?`<a href="${esc(href)}">${esc(val)}</a>`:esc(val)}</span>`:"";
+const wn=waNumber();
+$("#fContact").innerHTML =
+  (wn?`<span class="row">WhatsApp: <a href="${esc(waLink("Hello "+N+"! I\u2019d like to ask about your menu."))}" target="_blank" rel="noopener">+${wn}</a></span>`:"")
+  + row("Email",CONFIG.email,CONFIG.email?"mailto:"+CONFIG.email:"") + row("Location",CONFIG.location) + row("Hours",CONFIG.hours);
+const soc=(n,u)=>/^https?:\/\//.test(u)?`<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`:"";
+$("#fSocial").innerHTML = soc("Instagram",CONFIG.instagram)+soc("TikTok",CONFIG.tiktok)+soc("Facebook",CONFIG.facebook);
+if(!$("#fSocial").innerHTML.trim()) $("#fSocial").parentElement.hidden = true;
+
+$("#orderForm").addEventListener("submit",e=>e.preventDefault());
+
+/* Mobile menu */
+const burger=$("#burger"), links=$("#links");
+burger.addEventListener("click",()=>{ const o=links.classList.toggle("open"); burger.setAttribute("aria-expanded",o); burger.setAttribute("aria-label",o?"Close menu":"Open menu"); burger.textContent=o?"\u2715":"\u2630"; });
+links.addEventListener("click",e=>{ if(e.target.tagName==="A"){ links.classList.remove("open"); burger.textContent="\u2630"; burger.setAttribute("aria-expanded","false"); burger.setAttribute("aria-label","Open menu"); } });
+</script>
+</body>
+</html>
