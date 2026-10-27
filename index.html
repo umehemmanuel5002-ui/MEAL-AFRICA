@@ -355,7 +355,7 @@ const CONFIG = {
   tiktok: "https://www.tiktok.com/@mealafrica_ng",
   facebook: "",
   whatsappChannel: "",  // OPTIONAL: your WhatsApp Channel link (https://whatsapp.com/channel/...). Leave "" to hide the button. Use a Channel, not a Group, so customers’ numbers stay private.
-  heroImage: ""     // e.g. "images/hero.jpg"
+  heroImage: "images/hero.jpg"     // e.g. "images/hero.jpg"
 };
 
 /* =====================================================
@@ -365,10 +365,10 @@ const CONFIG = {
    desc: short and factual. Replace with your own words about each dish.
    ===================================================== */
 const MENU = [
-  { name:"Grilled fish (kroka)",    desc:"Fish grilled and served hot.",    price:"", image:"" },
+  { name:"Grilled fish (kroka)",    desc:"Fish grilled and served hot.",    price:"", image:"images/kroka.jpg" },
   { name:"Grilled chicken",         desc:"Chicken grilled and served hot.", price:"", image:"images/grilled-chicken.jpg" },
   { name:"Chicken and chips",       desc:"Chicken served with chips.",      price:"", image:"" },
-  { name:"Bole",                    desc:"Bole, served hot.",        price:"", image:"" },
+  { name:"Bole",                    desc:"Bole, served hot.",        price:"", image:"images/bole.jpg" },
   { name:"Fries with pepper sauce", desc:"Fries served with pepper sauce.", price:"", image:"" },
   { name:"Loaded fries",            desc:"Fries with toppings.", price:"", image:"images/loaded-fries.jpg" }
 ];
@@ -489,7 +489,7 @@ $("#qHours").textContent = CONFIG.hours ? "Open: "+CONFIG.hours : "Message us on
 
 /* Hero photo */
 const heroFallback='<span class="hero-mark">Meal<br>Africa<small>Identity &amp; Value</small></span>';
-if(CONFIG.heroImage){ $("#heroImg").removeAttribute("aria-hidden"); } if(CONFIG.heroImage) $("#heroImg").innerHTML=`<img src="${esc(CONFIG.heroImage)}" alt="${esc(N)} signature dish" fetchpriority="high" width="420" height="525">`;
+if(CONFIG.heroImage){ $("#heroImg").removeAttribute("aria-hidden"); } if(CONFIG.heroImage) $("#heroImg").innerHTML=`<img src="${esc(CONFIG.heroImage)}" alt="Platter of grilled fish with fries and fried plantain" fetchpriority="high" width="420" height="525">`;
 
 /* Broken images/videos: fall back gracefully instead of showing a broken icon */
 document.addEventListener("error",e=>{
