@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Meal Africa | Identity &amp; Value</title>
-<meta name="description" content="Meal Africa serves grilled fish (kroka), grilled chicken, bole and loaded fries in Owerri. Order on WhatsApp.">
+<meta name="description" content="Meal Africa serves grilled catfish, grilled chicken, bole and loaded fries in Owerri. Order on WhatsApp.">
 <meta name="theme-color" content="#0f3d2a">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f3d2a'/%3E%3Ctext x='32' y='46' font-size='38' text-anchor='middle' fill='%23f5a05a' font-family='Georgia,serif' font-weight='700'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/favicon.png">
 <meta property="og:title" content="Meal Africa | Identity &amp; Value">
 <meta property="og:description" content="Taste where we come from. Order on WhatsApp.">
 <meta property="og:type" content="website">
@@ -57,6 +58,11 @@ header{position:sticky;top:0;z-index:20;background:var(--green);color:#fff;paddi
 .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
 .logo{display:inline-flex;align-items:center;min-height:44px;font:700 1.35rem var(--serif);letter-spacing:-.01em;text-decoration:none}
 .logo span{color:var(--orange)}
+.logo{gap:8px}
+.logo .lt{font-weight:inherit}
+.logo-mark{width:38px;height:38px;object-fit:contain;flex:none}
+.brandline{display:flex;align-items:center;gap:12px}
+.brandline .logo-mark{width:44px;height:44px}
 .nav-right{display:flex;align-items:center;gap:6px}
 .nav-right .btn{min-height:40px;padding:0 18px;font-size:.85rem}
 .burger{width:44px;height:44px;border:0;background:none;color:#fff;cursor:pointer;font-size:1.5rem}
@@ -211,7 +217,7 @@ footer a:hover{color:#fff;text-decoration:underline}
       <div>
         <span class="tag" id="heroTag">Identity &amp; Value</span>
         <h1>Taste where <em>we come from.</em></h1>
-        <p class="sub">Kroka, grilled chicken, bole and loaded fries. A small menu with a big sense of home.</p>
+        <p class="sub">Grilled catfish, grilled chicken, bole and loaded fries. A small menu with a big sense of home.</p>
         <div class="cta-row">
           <a class="btn btn-orange" href="#order">Order Now</a>
           <a class="link" href="#menu">See the menu</a>
@@ -309,7 +315,7 @@ footer a:hover{color:#fff;text-decoration:underline}
       <div class="qgrid">
         <div class="qcard"><h3>Chat with us</h3><p>Ask about the menu, prices or delivery.</p><a class="btn btn-line" id="askBtn" data-wa href="#order">WhatsApp us</a></div>
         <div class="qcard"><h3>Email</h3><p id="qMail"></p></div>
-        <div class="qcard"><h3>Find us</h3><p id="qLoc"></p><p id="qHours"></p></div>
+        <div class="qcard"><h3>Find us</h3><p id="qLoc"></p><p id="qHours"></p><a class="btn btn-line" id="mapLink" href="#" hidden>Get directions on Google Maps</a></div>
       </div>
       <div class="faq">
         <details><summary>How does ordering work?</summary><p>Choose your meals above and send the order on WhatsApp. We confirm availability, the total and delivery details with you.</p></details>
@@ -353,6 +359,8 @@ const CONFIG = {
   hours: "Weekday evenings",        // e.g. "Mon–Sat, 11am–9pm"
   instagram: "https://instagram.com/mealafrica_ng",    // full link, e.g. "https://instagram.com/yourpage"
   tiktok: "https://www.tiktok.com/@mealafrica_ng",
+  logo: "images/logo.png",  // your logo mark. Leave "" to hide it.
+  mapLink: "https://maps.app.goo.gl/6yNAs3FvJXat8WV86?g_st=awb",  // Google Maps link to your location. Leave "" to hide the directions button.
   facebook: "",
   whatsappChannel: "",  // OPTIONAL: your WhatsApp Channel link (https://whatsapp.com/channel/...). Leave "" to hide the button. Use a Channel, not a Group, so customers’ numbers stay private.
   heroImage: "images/hero.jpg"     // e.g. "images/hero.jpg"
@@ -361,15 +369,15 @@ const CONFIG = {
 /* =====================================================
    2. EDIT HERE: YOUR MENU
    price: leave "" until confirmed, or write e.g. "₦3,500"
-   image: leave "" until you have THAT dish's photo, e.g. "images/kroka.jpg"
+   image: leave "" until you have THAT dish's photo, e.g. "images/catfish.jpg"
    desc: short and factual. Replace with your own words about each dish.
    ===================================================== */
 const MENU = [
-  { name:"Grilled fish (kroka)",    desc:"Fish grilled and served hot.",    price:"", image:"images/kroka.jpg" },
+  { name:"Grilled catfish",         desc:"Catfish grilled and served hot.", price:"", image:"images/catfish.jpg" },
   { name:"Grilled chicken",         desc:"Chicken grilled and served hot.", price:"", image:"images/grilled-chicken.jpg" },
-  { name:"Chicken and chips",       desc:"Chicken served with chips.",      price:"", image:"" },
+  { name:"Chicken and chips",       desc:"Chicken served with chips.",      price:"", image:"images/chicken-chips.jpg" },
   { name:"Bole",                    desc:"Bole, served hot.",        price:"", image:"images/bole.jpg" },
-  { name:"Fries with pepper sauce", desc:"Fries served with pepper sauce.", price:"", image:"" },
+  { name:"Fries with pepper sauce", desc:"Fries served with pepper sauce.", price:"", image:"images/fries-pepper.jpg" },
   { name:"Loaded fries",            desc:"Fries with toppings.", price:"", image:"images/loaded-fries.jpg" }
 ];
 
@@ -386,7 +394,7 @@ const REVIEWS = [
 
 /* =====================================================
    4. EDIT HERE: CUSTOMER FOOD PHOTOS & VIDEOS (APPROVED ONLY)
-   { approved:true, photo:"images/moments/one.jpg", caption:"Grilled fish (kroka)", credit:"Chika" },
+   { approved:true, photo:"images/moments/one.jpg", caption:"Grilled catfish", credit:"Chika" },
    { approved:true, video:"images/moments/two.mp4", poster:"images/moments/two.jpg", caption:"Loaded fries", credit:"Tolu" },
    - credit is optional. Remove it if the customer wants to stay anonymous.
    ===================================================== */
@@ -419,9 +427,10 @@ const dishMsg = (d,q=1) => `Hello ${N}! I\u2019d like to order ${q} x ${d.name}$
 /* Branding */
 document.title = N + " | " + CONFIG.tagline.replace(/\.$/,"");
 const [w1,...wr] = N.split(" ");
-$("#logo").innerHTML = wr.length ? esc(w1)+"<span>.</span>"+esc(wr.join(" ")) : esc(N);
+const LOGO=CONFIG.logo?`<img class="logo-mark" src="${esc(CONFIG.logo)}" alt="" width="38" height="38" onerror="this.remove()">`:"";
+$("#logo").innerHTML = LOGO + "<b class=\"lt\">" + (wr.length ? esc(w1)+"<span>.</span>"+esc(wr.join(" ")) : esc(N)) + "</b>";
 $("#heroTag").textContent = CONFIG.tagline.replace(/\.$/,"");
-$("#fBrand").textContent = N; $("#fTag").textContent = CONFIG.tagline; $("#fBrand2").textContent = N;
+$("#fBrand").innerHTML = LOGO+"<span>"+esc(N)+"</span>"; $("#fTag").textContent = CONFIG.tagline; $("#fBrand2").textContent = N;
 $("#yr").textContent = new Date().getFullYear();
 
 /* Menu */
@@ -484,6 +493,7 @@ if($("#reviewAsk")) wire("#reviewAsk",`Hello ${N}! I\u2019d like to share feedba
 wire("#askBtn",`Hello ${N}! I have a question before I order: `);
 if(/^https?:\/\//.test(CONFIG.whatsappChannel)){ const c=$("#channelLink"); c.href=CONFIG.whatsappChannel; c.target="_blank"; c.rel="noopener"; c.hidden=false; }
 $("#qMail").innerHTML = CONFIG.email ? `<a href="mailto:${esc(CONFIG.email)}">${esc(CONFIG.email)}</a>` : "Use the WhatsApp button for the quickest reply.";
+if(/^https?:\/\//.test(CONFIG.mapLink)){ const m=$("#mapLink"); m.href=CONFIG.mapLink; m.target="_blank"; m.rel="noopener"; m.hidden=false; }
 $("#qLoc").textContent = CONFIG.location || "Message us on WhatsApp to ask where to find us.";
 $("#qHours").textContent = CONFIG.hours ? "Open: "+CONFIG.hours : "Message us on WhatsApp to ask about opening times.";
 
