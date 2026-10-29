@@ -6,8 +6,8 @@
 <title>Meal Africa | Identity &amp; Value</title>
 <meta name="description" content="Meal Africa serves grilled catfish, grilled chicken, bole and loaded fries in Owerri. Order on WhatsApp.">
 <meta name="theme-color" content="#0f3d2a">
-<link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="apple-touch-icon" href="images/favicon.png">
+<link rel="icon" type="image/png" href="favicon.png?v=3">
+<link rel="apple-touch-icon" href="favicon.png?v=3">
 <meta property="og:title" content="Meal Africa | Identity &amp; Value">
 <meta property="og:description" content="Taste where we come from. Order on WhatsApp.">
 <meta property="og:type" content="website">
@@ -60,7 +60,7 @@ header{position:sticky;top:0;z-index:20;background:var(--green);color:#fff;paddi
 .logo span{color:var(--orange)}
 .logo{gap:8px}
 .logo .lt{font-weight:inherit}
-.logo-mark{width:38px;height:38px;object-fit:contain;flex:none}
+.logo-mark{width:46px;height:46px;object-fit:contain;flex:none}
 .brandline{display:flex;align-items:center;gap:12px}
 .brandline .logo-mark{width:44px;height:44px}
 .nav-right{display:flex;align-items:center;gap:6px}
@@ -224,7 +224,7 @@ footer a:hover{color:#fff;text-decoration:underline}
         </div>
         <p class="note">Six dishes on the menu today.</p>
       </div>
-      <!-- HOW TO ADD THE HERO PHOTO: set heroImage in CONFIG below, e.g. "images/hero.jpg" (portrait photo works best) -->
+      <!-- HOW TO ADD THE HERO PHOTO: set heroImage in CONFIG below, e.g. "hero.jpg" (portrait photo works best) -->
       <div class="hero-img" id="heroImg" aria-hidden="true"><span class="hero-mark">Meal<br>Africa<small>Identity &amp; Value</small></span></div>
     </div>
   </section>
@@ -359,26 +359,26 @@ const CONFIG = {
   hours: "Weekday evenings",        // e.g. "Mon–Sat, 11am–9pm"
   instagram: "https://instagram.com/mealafrica_ng",    // full link, e.g. "https://instagram.com/yourpage"
   tiktok: "https://www.tiktok.com/@mealafrica_ng",
-  logo: "images/logo.png",  // your logo mark. Leave "" to hide it.
+  logo: "logo.png?v=3",  // your logo mark. Leave "" to hide it.
   mapLink: "https://maps.app.goo.gl/6yNAs3FvJXat8WV86?g_st=awb",  // Google Maps link to your location. Leave "" to hide the directions button.
   facebook: "",
   whatsappChannel: "",  // OPTIONAL: your WhatsApp Channel link (https://whatsapp.com/channel/...). Leave "" to hide the button. Use a Channel, not a Group, so customers’ numbers stay private.
-  heroImage: "images/hero.jpg"     // e.g. "images/hero.jpg"
+  heroImage: "hero.jpg"     // e.g. "hero.jpg"
 };
 
 /* =====================================================
    2. EDIT HERE: YOUR MENU
    price: leave "" until confirmed, or write e.g. "₦3,500"
-   image: leave "" until you have THAT dish's photo, e.g. "images/catfish.jpg"
+   image: leave "" until you have THAT dish's photo, e.g. "catfish.jpg"
    desc: short and factual. Replace with your own words about each dish.
    ===================================================== */
 const MENU = [
-  { name:"Grilled catfish",         desc:"Catfish grilled and served hot.", price:"", image:"images/catfish.jpg" },
-  { name:"Grilled chicken",         desc:"Chicken grilled and served hot.", price:"", image:"images/grilled-chicken.jpg" },
-  { name:"Chicken and chips",       desc:"Chicken served with chips.",      price:"", image:"images/chicken-chips.jpg" },
-  { name:"Bole",                    desc:"Bole, served hot.",        price:"", image:"images/bole.jpg" },
-  { name:"Fries with pepper sauce", desc:"Fries served with pepper sauce.", price:"", image:"images/fries-pepper.jpg" },
-  { name:"Loaded fries",            desc:"Fries with toppings.", price:"", image:"images/loaded-fries.jpg" }
+  { name:"Grilled catfish",         desc:"Catfish grilled and served hot.", price:"", image:"catfish.jpg" },
+  { name:"Grilled chicken",         desc:"Chicken grilled and served hot.", price:"", image:"grilled-chicken.jpg" },
+  { name:"Chicken and chips",       desc:"Chicken served with chips.",      price:"", image:"chicken-chips.jpg" },
+  { name:"Bole",                    desc:"Bole, served hot.",        price:"", image:"bole.jpg" },
+  { name:"Fries with pepper sauce", desc:"Fries served with pepper sauce.", price:"", image:"fries-pepper.jpg" },
+  { name:"Loaded fries",            desc:"Fries with toppings.", price:"", image:"loaded-fries.jpg" }
 ];
 
 /* =====================================================
@@ -427,7 +427,7 @@ const dishMsg = (d,q=1) => `Hello ${N}! I\u2019d like to order ${q} x ${d.name}$
 /* Branding */
 document.title = N + " | " + CONFIG.tagline.replace(/\.$/,"");
 const [w1,...wr] = N.split(" ");
-const LOGO=CONFIG.logo?`<img class="logo-mark" src="${esc(CONFIG.logo)}" alt="" width="38" height="38" onerror="this.remove()">`:"";
+const LOGO=CONFIG.logo?`<img class="logo-mark" src="${esc(CONFIG.logo)}" alt="" width="46" height="46" onerror="if(!this.dataset.t){this.dataset.t=1;this.src=this.getAttribute('src').indexOf('images/')===0?this.getAttribute('src').slice(7):'images/'+this.getAttribute('src')}else{this.remove()}">`:"";
 $("#logo").innerHTML = LOGO + "<b class=\"lt\">" + (wr.length ? esc(w1)+"<span>.</span>"+esc(wr.join(" ")) : esc(N)) + "</b>";
 $("#heroTag").textContent = CONFIG.tagline.replace(/\.$/,"");
 $("#fBrand").innerHTML = LOGO+"<span>"+esc(N)+"</span>"; $("#fTag").textContent = CONFIG.tagline; $("#fBrand2").textContent = N;
