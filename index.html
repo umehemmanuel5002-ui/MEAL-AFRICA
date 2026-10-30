@@ -4,13 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Meal Africa | Identity &amp; Value</title>
-<meta name="description" content="Meal Africa serves grilled catfish, grilled chicken, bole and loaded fries in Owerri. Order on WhatsApp.">
+<meta name="description" content="Meal Africa serves grilled catfish, grilled chicken, chicken and chips, bole and fries in Owerri. Order on WhatsApp.">
 <meta name="theme-color" content="#0f3d2a">
 <link rel="icon" type="image/png" href="favicon.png?v=3">
 <link rel="apple-touch-icon" href="favicon.png?v=3">
 <meta property="og:title" content="Meal Africa | Identity &amp; Value">
 <meta property="og:description" content="Taste where we come from. Order on WhatsApp.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://umehemmanuel5002-ui.github.io/MEAL-AFRICA/">
+<meta property="og:image" content="https://umehemmanuel5002-ui.github.io/MEAL-AFRICA/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meal Africa logo: Africa map with a spoon and fork, and the line Identity &amp; Value">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://umehemmanuel5002-ui.github.io/MEAL-AFRICA/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
@@ -193,6 +201,25 @@ footer a:hover{color:#fff;text-decoration:underline}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:#111;color:#fff;padding:14px 20px;border-radius:14px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:50;width:min(92%,420px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== COMBOS + MOTION ===== */
+.combos{background:color-mix(in srgb,var(--orange) 8%,var(--bg));border-block:1px solid var(--line)}
+.cgrid{grid-template-columns:1fr 1fr;gap:14px}
+@media (min-width:960px){.cgrid{grid-template-columns:repeat(4,1fr);gap:20px}}
+.combo .dish-img{aspect-ratio:1}
+.combo h3{font-size:1.05rem}
+.combo .dish-foot{flex-direction:column;align-items:stretch;gap:10px}
+.combo .dish-foot .btn{width:100%;padding:0 10px;white-space:nowrap}
+.combo.soon{border-style:dashed}
+.btn.is-soon{opacity:.6;cursor:default;pointer-events:none}
+.badge{position:absolute;top:10px;left:10px;z-index:1;background:var(--orange);color:#1a1006;font:800 .68rem var(--sans);padding:4px 10px;border-radius:999px}
+.btn:active{transform:scale(.97)}
+.rv{opacity:1}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .6s cubic-bezier(.2,.7,.2,1) var(--d,0s),border-color .2s}
+.js .rv.in{opacity:1;transform:none}
+.js .rvi img{transform:translateY(9%) scale(1.14);clip-path:inset(100% 0 0 0);transition:transform 1.15s cubic-bezier(.16,.8,.2,1) calc(var(--d,0s) + .12s),clip-path 1s cubic-bezier(.16,.8,.2,1) calc(var(--d,0s) + .12s)}
+.js .rvi.in img{transform:none;clip-path:inset(0)}
+@media (prefers-reduced-motion:reduce){.js .rv,.js .rvi img{opacity:1;transform:none;clip-path:none;transition:none}}
 </style>
 </head>
 <body>
@@ -202,7 +229,7 @@ footer a:hover{color:#fff;text-decoration:underline}
   <div class="wrap nav">
     <a class="logo" id="logo" href="#top" aria-label="Home">Meal<span>.</span>Africa</a>
     <nav class="links" id="links" aria-label="Main">
-      <a href="#menu">Menu</a><a href="#story">Our Story</a><a href="#order">Order</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+      <a href="#menu">Menu</a><a href="#combos">Combos</a><a href="#story">Our Story</a><a href="#order">Order</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn-orange" href="#order">Order Now</a>
@@ -217,7 +244,7 @@ footer a:hover{color:#fff;text-decoration:underline}
       <div>
         <span class="tag" id="heroTag">Identity &amp; Value</span>
         <h1>Taste where <em>we come from.</em></h1>
-        <p class="sub">Grilled catfish, grilled chicken, bole and loaded fries. A small menu with a big sense of home.</p>
+        <p class="sub">Grilled catfish, grilled chicken, chicken and chips, bole and fries. A small menu with a big sense of home.</p>
         <div class="cta-row">
           <a class="btn btn-orange" href="#order">Order Now</a>
           <a class="link" href="#menu">See the menu</a>
@@ -235,6 +262,15 @@ footer a:hover{color:#fff;text-decoration:underline}
       <h2>Six dishes. <em>Made to be remembered.</em></h2>
       <p class="lead">Tap “Order” on any dish and we’ll open WhatsApp for you.</p>
       <div class="grid" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <section class="combos" id="combos">
+    <div class="wrap">
+      <span class="eyebrow">Made for your cravings</span>
+      <h2>More flavour. <em>One perfect combo.</em></h2>
+      <p class="lead">Your favourite flavours, brought together. Find the combination that speaks to your appetite.</p>
+      <div class="grid cgrid" id="comboGrid"></div>
     </div>
   </section>
 
@@ -373,12 +409,36 @@ const CONFIG = {
    desc: short and factual. Replace with your own words about each dish.
    ===================================================== */
 const MENU = [
-  { name:"Grilled catfish",         desc:"Catfish grilled and served hot.", price:"", image:"catfish.jpg" },
-  { name:"Grilled chicken",         desc:"Chicken grilled and served hot.", price:"", image:"grilled-chicken.jpg" },
-  { name:"Chicken and chips",       desc:"Chicken served with chips.",      price:"", image:"chicken-chips.jpg" },
-  { name:"Bole",                    desc:"Bole, served hot.",        price:"", image:"bole.jpg" },
-  { name:"Fries with pepper sauce", desc:"Fries served with pepper sauce.", price:"", image:"fries-pepper.jpg" },
-  { name:"Loaded fries",            desc:"Fries with toppings.", price:"", image:"loaded-fries.jpg" }
+  // name = display name | desc = one plain sentence | open = first line of the WhatsApp message | alt = photo description
+  // Only write what is TRUE. price: leave "" until confirmed.
+  { name:"Naija Grilled Catfish", desc:"Catfish grilled and served hot, made for a proper Nigerian mealtime.", price:"", image:"catfish.jpg",
+    alt:"Grilled catfish on foil topped with sliced tomato, cucumber and onion, with fries beside it", open:"That grilled catfish is calling my name! \uD83D\uDD25\uD83D\uDC1F" },
+  { name:"Naija Grilled Chicken", desc:"Chicken grilled and served hot, simple and satisfying.", price:"", image:"grilled-chicken.jpg",
+    alt:"Pieces of grilled chicken with a deep golden-brown crust on a grill", open:"I\u2019m craving some proper grilled chicken! \uD83C\uDF57\uD83D\uDD25" },
+  { name:"Naija Chicken & Chips", desc:"Chicken served with chips, a familiar and satisfying pairing.", price:"", image:"chicken-chips.jpg",
+    alt:"Glazed chicken wings served with potato wedges and a creamy dip on a white plate", open:"I\u2019m in the mood for something seriously satisfying! \uD83C\uDF57\uD83C\uDF5F" },
+  { name:"Roasted Bole", desc:"Bole, Nigerian roasted plantain, served hot.", price:"", image:"bole.jpg",
+    alt:"Plantain pieces in a white bowl with red pepper sauce", open:"Give me that good Nigerian bole! \uD83D\uDE0B\uD83D\uDD25" },
+  { name:"Pepper-Dip Fries", desc:"Golden fries served with pepper sauce, a savoury snack with Nigerian pepper flavour.", price:"", image:"fries-pepper.jpg",
+    alt:"Fried strips served on a white plate beside a glass dish of red pepper sauce", open:"Just me, some golden fries and that pepper sauce! \uD83C\uDF5F\uD83C\uDF36\uFE0F" },
+  { name:"Loaded Fries", desc:"Fries loaded with toppings. Message us to ask what\u2019s on them today.", price:"", image:"loaded-fries.jpg",
+    alt:"Sample photo of loaded fries with melted cheese and other toppings", open:"Loaded fries, please! \uD83D\uDE0B\uD83C\uDF5F" }
+];
+
+/* =====================================================
+   2b. EDIT HERE: COMBO MEALS (8 slots, ready for your real combos)
+   Leave name "" and the card shows "Coming soon" (no order button).
+   Fill in a real combo: name, desc, price (optional), image, badge (optional, only if TRUE), open (optional WhatsApp first line).
+   ===================================================== */
+const COMBOS = [
+  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
+  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
+  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
+  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
+  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
+  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
+  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
+  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" }
 ];
 
 /* =====================================================
@@ -394,7 +454,7 @@ const REVIEWS = [
 
 /* =====================================================
    4. EDIT HERE: CUSTOMER FOOD PHOTOS & VIDEOS (APPROVED ONLY)
-   { approved:true, photo:"images/moments/one.jpg", caption:"Grilled catfish", credit:"Chika" },
+   { approved:true, photo:"images/moments/one.jpg", caption:"Naija Grilled Catfish", credit:"Chika" },
    { approved:true, video:"images/moments/two.mp4", poster:"images/moments/two.jpg", caption:"Loaded fries", credit:"Tolu" },
    - credit is optional. Remove it if the customer wants to stay anonymous.
    ===================================================== */
@@ -422,7 +482,9 @@ const ready = !!waNumber();
 if(!ready) console.warn(N + ": set CONFIG.whatsapp to your number (digits only, international format, e.g. 2348012345678).");
 
 const toast = msg => { const t=$("#toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toast.t); toast.t=setTimeout(()=>t.classList.remove("show"),4200); };
-const dishMsg = (d,q=1) => `Hello ${N}! I\u2019d like to order ${q} x ${d.name}${d.price?" ("+d.price+")":""}. Please let me know if it\u2019s available and the total. Thank you.`;
+const askLine = d => d.price ? "Please confirm it\u2019s available today." : "What\u2019s available today, and how much is it?";
+const dishMsg = d => `Hello ${N}! ${d.open||"I\u2019m ready to order!"} I\u2019d like to order the ${d.name}${d.price?" ("+d.price+")":""}. ${askLine(d)}`;
+const comboMsg = d => `Hello ${N}! ${d.open||"I\u2019m ready for this combo! \uD83D\uDE0B"} I\u2019d like to order the ${d.name}${d.price?" ("+d.price+")":""}. ${askLine(d)}`;
 
 /* Branding */
 document.title = N + " | " + CONFIG.tagline.replace(/\.$/,"");
@@ -435,14 +497,36 @@ $("#yr").textContent = new Date().getFullYear();
 
 /* Menu */
 $("#menuGrid").innerHTML = MENU.map((d,i)=>`
-  <article class="dish">
-    <div class="dish-img" data-i="${i}">${d.image?`<img src="${esc(d.image)}" alt="${esc(d.name)}" loading="lazy" width="500" height="400">`:`<div><b>${pad(i)}</b><small>Photo coming soon</small></div>`}</div>
+  <article class="dish rv">
+    <div class="dish-img rvi" data-i="${i}">${d.image?`<img src="${esc(d.image)}" alt="${esc(d.alt||d.name)}" loading="lazy" width="500" height="400">`:`<div><b>${pad(i)}</b><small>Photo coming soon</small></div>`}</div>
     <div class="dish-body">
       <h3>${esc(d.name)}</h3><p>${esc(d.desc)}</p>
       <div class="dish-foot"><span class="price">${esc(d.price||"Ask for today\u2019s price")}</span>
       <a class="btn btn-line" data-wa href="${esc(waLink(dishMsg(d))||"#order")}"${ready?' target="_blank" rel="noopener"':""} aria-label="Order ${esc(d.name)} on WhatsApp">Order</a></div>
     </div>
   </article>`).join("");
+
+/* Combos */
+$("#comboGrid").innerHTML = COMBOS.map((c,i)=>{ const real=!!c.name.trim(), nm=real?c.name:"Combo "+pad(i);
+  return `<article class="dish combo rv${real?"":" soon"}">
+    <div class="dish-img rvi">${c.badge?`<span class="badge">${esc(c.badge)}</span>`:""}${c.image?`<img src="${esc(c.image)}" alt="${esc(c.alt||nm)}" loading="lazy" width="500" height="500">`:`<div><b>${pad(i)}</b><small>${real?"Photo coming soon":"Details coming soon"}</small></div>`}</div>
+    <div class="dish-body"><h3>${esc(nm)}</h3><p>${esc(c.desc||(real?"":"Combo details will be added soon."))}</p>
+      <div class="dish-foot">${real?`<span class="price">${esc(c.price||"Ask for today\u2019s price")}</span><a class="btn btn-line" data-wa href="${esc(waLink(comboMsg(c))||"#order")}"${ready?' target="_blank" rel="noopener"':""} aria-label="Order ${esc(nm)} on WhatsApp">Order</a>`:`<span class="btn btn-line is-soon" aria-disabled="true">Coming soon</span>`}</div></div></article>`; }).join("");
+
+/* Motion: scroll reveals (content stays visible if anything fails or motion is reduced) */
+try{
+  const root=document.documentElement, rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("section h2,section .eyebrow,section .lead,.hero .wrap>*").forEach(el=>el.classList.add("rv"));
+  document.querySelectorAll(".hero-img").forEach(el=>el.classList.add("rvi"));
+  document.querySelectorAll(".grid").forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty("--d",Math.min(i%4,3)*.13+"s")));
+  const els=[...document.querySelectorAll(".rv,.rvi")];
+  if(!rm && "IntersectionObserver" in window){
+    root.classList.add("js");
+    const io=new IntersectionObserver(es=>es.forEach(x=>{ if(x.isIntersecting){ x.target.classList.add("in"); io.unobserve(x.target); } }),{threshold:.12,rootMargin:"0px 0px -6% 0px"});
+    els.forEach(el=>io.observe(el));
+    setTimeout(()=>els.forEach(el=>el.classList.add("in")),4000);
+  }
+}catch(err){ console.warn("Motion off:",err); }
 
 /* Order form with quantities */
 $("#checks").innerHTML = MENU.map((d,i)=>`
@@ -456,7 +540,7 @@ $("#sendOrder").addEventListener("click",()=>{
   if(!rows.length){ toast("Please pick at least one meal."); return; }
   const lines=rows.map(r=>`- ${r.querySelector(".qty").value} x ${MENU[r.querySelector("input").value].name}`);
   const name=$("#oName").value.trim(), note=$("#oNote").value.trim();
-  let m=`Hello ${N}! I\u2019d like to order:\n${lines.join("\n")}\n\n${$("#oType").value}`;
+  let m=`Hello ${N}! \uD83D\uDE0B I\u2019d like to order:\n${lines.join("\n")}\n\n${$("#oType").value}`;
   if(name) m+=`\nName: ${name}`; if(note) m+=`\nNotes: ${note}`;
   m+="\n\nPlease confirm availability and the total. Thank you.";
   const url=waLink(m);
