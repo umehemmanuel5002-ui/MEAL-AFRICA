@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Meal Africa | Identity &amp; Value</title>
-<meta name="description" content="Meal Africa serves grilled catfish, grilled chicken, chicken and chips, bole and fries in Owerri. Order on WhatsApp.">
+<meta name="description" content="Meal Africa serves African grills, combo meals and signature specials in Owerri. Order on WhatsApp.">
 <meta name="theme-color" content="#0f3d2a">
 <link rel="icon" type="image/png" href="favicon.png?v=3">
 <link rel="apple-touch-icon" href="favicon.png?v=3">
@@ -209,6 +209,7 @@ footer a:hover{color:#fff;text-decoration:underline}
 .combo .dish-img{aspect-ratio:1}
 .combo h3{font-size:1.05rem}
 .combo .dish-foot{flex-direction:column;align-items:stretch;gap:10px}
+.dish{display:flex;flex-direction:column}.dish-body{display:flex;flex-direction:column;flex:1}.dish-body .dish-foot{margin-top:auto;padding-top:12px}.dish-body .opt{margin-top:10px;width:100%}
 .combo .dish-foot .btn{width:100%;padding:0 10px;white-space:nowrap}
 .combo.soon{border-style:dashed}
 .btn.is-soon{opacity:.6;cursor:default;pointer-events:none}
@@ -220,6 +221,18 @@ footer a:hover{color:#fff;text-decoration:underline}
 .js .rvi img{transform:translateY(9%) scale(1.14);clip-path:inset(100% 0 0 0);transition:transform 1.15s cubic-bezier(.16,.8,.2,1) calc(var(--d,0s) + .12s),clip-path 1s cubic-bezier(.16,.8,.2,1) calc(var(--d,0s) + .12s)}
 .js .rvi.in img{transform:none;clip-path:inset(0)}
 @media (prefers-reduced-motion:reduce){.js .rv,.js .rvi img{opacity:1;transform:none;clip-path:none;transition:none}}
+.tabs{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+.tabs a{padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);font:700 .82rem var(--sans);min-height:40px;display:inline-flex;align-items:center}
+.tabs a:active{transform:scale(.97)}
+.num{position:absolute;right:12px;bottom:6px;z-index:1;font:italic 600 2.4rem Fraunces,Georgia,serif;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.55);line-height:1}
+.opt{width:100%;min-height:44px;margin-top:10px;border-radius:12px;border:1.5px solid var(--line);padding:0 10px;font:600 .9rem var(--sans);background:#fff;color:inherit}
+@media (max-width:599px){#menuGrid{grid-template-columns:1fr}#menuGrid .dish-img{aspect-ratio:4/3}}
+.extras{margin-top:26px}
+.extras ul{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:1fr;gap:0}
+@media (min-width:600px){.extras ul{grid-template-columns:1fr 1fr;column-gap:28px}}
+.extras li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.extras li b{white-space:nowrap}
+.tabs a[aria-current="true"]{background:var(--orange);color:#1a1006;border-color:var(--orange)}
 </style>
 </head>
 <body>
@@ -229,7 +242,7 @@ footer a:hover{color:#fff;text-decoration:underline}
   <div class="wrap nav">
     <a class="logo" id="logo" href="#top" aria-label="Home">Meal<span>.</span>Africa</a>
     <nav class="links" id="links" aria-label="Main">
-      <a href="#menu">Menu</a><a href="#combos">Combos</a><a href="#story">Our Story</a><a href="#order">Order</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+      <a href="#combos">Combos</a><a href="#menu">Specials</a><a href="#story">Our Story</a><a href="#order">Order</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn-orange" href="#order">Order Now</a>
@@ -244,22 +257,33 @@ footer a:hover{color:#fff;text-decoration:underline}
       <div>
         <span class="tag" id="heroTag">Identity &amp; Value</span>
         <h1>Taste where <em>we come from.</em></h1>
-        <p class="sub">Grilled catfish, grilled chicken, chicken and chips, bole and fries. A small menu with a big sense of home.</p>
+        <p class="sub">The taste of African grills. The pleasure of every bite.</p>
         <div class="cta-row">
           <a class="btn btn-orange" href="#order">Order Now</a>
           <a class="link" href="#menu">See the menu</a>
         </div>
-        <p class="note">Six dishes on the menu today.</p>
+        <p class="note" id="heroNote"></p>
       </div>
       <!-- HOW TO ADD THE HERO PHOTO: set heroImage in CONFIG below, e.g. "hero.jpg" (portrait photo works best) -->
       <div class="hero-img" id="heroImg" aria-hidden="true"><span class="hero-mark">Meal<br>Africa<small>Identity &amp; Value</small></span></div>
     </div>
   </section>
 
+  <section id="grill">
+    <div class="wrap">
+      <div class="tabs"><a href="#grill">From the Grill</a><a href="#menu">Signature Specials</a><a href="#combos">Combo Meals</a></div>
+      <span class="eyebrow">Barbecue</span>
+      <h2>From the grill. <em>Served hot.</em></h2>
+      <p class="lead">Tap “Order” on any dish and we’ll open WhatsApp for you.</p>
+      <div class="grid" id="grillGrid"></div>
+    </div>
+  </section>
+
   <section id="menu">
     <div class="wrap">
-      <span class="eyebrow">The Menu</span>
-      <h2>Six dishes. <em>Made to be remembered.</em></h2>
+      <div class="tabs"><a href="#grill">From the Grill</a><a href="#menu">Signature Specials</a><a href="#combos">Combo Meals</a></div>
+      <span class="eyebrow">Signature Specials</span>
+      <h2>Our signature creations. <em>Unforgettable African flavours.</em></h2>
       <p class="lead">Tap “Order” on any dish and we’ll open WhatsApp for you.</p>
       <div class="grid" id="menuGrid"></div>
     </div>
@@ -267,10 +291,12 @@ footer a:hover{color:#fff;text-decoration:underline}
 
   <section class="combos" id="combos">
     <div class="wrap">
-      <span class="eyebrow">Made for your cravings</span>
-      <h2>More flavour. <em>One perfect combo.</em></h2>
-      <p class="lead">Your favourite flavours, brought together. Find the combination that speaks to your appetite.</p>
+      <div class="tabs"><a href="#grill">From the Grill</a><a href="#menu">Signature Specials</a><a href="#combos">Combo Meals</a></div>
+      <span class="eyebrow">Combo Meals</span>
+      <h2>Great combinations. <em>Bigger satisfaction.</em></h2>
+      <p class="lead">Pick a combo and we’ll open WhatsApp for you.</p>
       <div class="grid cgrid" id="comboGrid"></div>
+      <div class="dish extras rv"><div class="dish-body"><h3>Sides &amp; extras</h3><p>Add any of these when you message us.</p><ul id="extrasList"></ul></div></div>
     </div>
   </section>
 
@@ -280,7 +306,7 @@ footer a:hover{color:#fff;text-decoration:underline}
         <span class="eyebrow">Our Story</span>
         <h2>African food is identity <em>you can taste.</em></h2>
         <p class="body">Meal Africa is built on a simple belief: our cuisine carries creativity, culture and real value, and it deserves to be seen that way. We’re starting small, with a short menu done properly, and building toward the recognition African food has earned.</p>
-        <!-- EDIT: add one or two sentences of your own founding story here. -->
+        <p class="body">We started Meal Africa to give African meals their rightful place on the front line of the world’s great cuisines. Every plate carries African identity and values. We want people to taste it, respect it, and see Africans differently: for what we bring to the table, and for who we are. Good food can open minds, and ours is made to help people value Africa and Africans.</p>
       </div>
       <div class="pillars">
         <div class="pillar"><h3>Identity</h3><p>Food that reflects where we come from.</p></div>
@@ -392,7 +418,7 @@ const CONFIG = {
   whatsapp: "2349116538499",
   email: "mealafricaglobal@gmail.com",
   location: "Amawire junction, after Orji flyover, Owerri",     // e.g. "Owerri, Imo State"
-  hours: "Weekday evenings",        // e.g. "Mon–Sat, 11am–9pm"
+  hours: "6pm to 10pm. Closed on Sundays and Thursdays.",        // e.g. "Mon–Sat, 11am–9pm"
   instagram: "https://instagram.com/mealafrica_ng",    // full link, e.g. "https://instagram.com/yourpage"
   tiktok: "https://www.tiktok.com/@mealafrica_ng",
   logo: "logo.png?v=3",  // your logo mark. Leave "" to hide it.
@@ -408,38 +434,31 @@ const CONFIG = {
    image: leave "" until you have THAT dish's photo, e.g. "catfish.jpg"
    desc: short and factual. Replace with your own words about each dish.
    ===================================================== */
-const MENU = [
-  // name = display name | desc = one plain sentence | open = first line of the WhatsApp message | alt = photo description
-  // Only write what is TRUE. price: leave "" until confirmed.
-  { name:"Naija Grilled Catfish", desc:"Catfish grilled and served hot, made for a proper Nigerian mealtime.", price:"", image:"catfish.jpg",
-    alt:"Grilled catfish on foil topped with sliced tomato, cucumber and onion, with fries beside it", open:"That grilled catfish is calling my name! \uD83D\uDD25\uD83D\uDC1F" },
-  { name:"Naija Grilled Chicken", desc:"Chicken grilled and served hot, simple and satisfying.", price:"", image:"grilled-chicken.jpg",
-    alt:"Pieces of grilled chicken with a deep golden-brown crust on a grill", open:"I\u2019m craving some proper grilled chicken! \uD83C\uDF57\uD83D\uDD25" },
-  { name:"Naija Chicken & Chips", desc:"Chicken served with chips, a familiar and satisfying pairing.", price:"", image:"chicken-chips.jpg",
-    alt:"Glazed chicken wings served with potato wedges and a creamy dip on a white plate", open:"I\u2019m in the mood for something seriously satisfying! \uD83C\uDF57\uD83C\uDF5F" },
-  { name:"Roasted Bole", desc:"Bole, Nigerian roasted plantain, served hot.", price:"", image:"bole.jpg",
-    alt:"Plantain pieces in a white bowl with red pepper sauce", open:"Give me that good Nigerian bole! \uD83D\uDE0B\uD83D\uDD25" },
-  { name:"Pepper-Dip Fries", desc:"Golden fries served with pepper sauce, a savoury snack with Nigerian pepper flavour.", price:"", image:"fries-pepper.jpg",
-    alt:"Fried strips served on a white plate beside a glass dish of red pepper sauce", open:"Just me, some golden fries and that pepper sauce! \uD83C\uDF5F\uD83C\uDF36\uFE0F" },
-  { name:"Loaded Fries", desc:"Fries loaded with toppings. Message us to ask what\u2019s on them today.", price:"", image:"loaded-fries.jpg",
-    alt:"Sample photo of loaded fries with melted cheese and other toppings", open:"Loaded fries, please! \uD83D\uDE0B\uD83C\uDF5F" }
+/* name | desc | price ("" if unknown) | open = first line of the WhatsApp message | image/alt | badge (only if TRUE) | opts = choices shown as a dropdown */
+const GRILL = [
+  { name:"Grilled Catfish", desc:"Grilled catfish with potato chips, ketchup, coleslaw and peppered sauce, served hot.", price:"₦12,000", open:"That grilled catfish is calling my name! \uD83D\uDD25\uD83D\uDC1F", image:"catfish.jpg", alt:"Grilled catfish on foil topped with sliced tomato, cucumber and onion, with fries beside it", badge:"" },
+  { name:"Grilled Platter", desc:"1 potato, 1 yam, 1 bole, 2 drumsticks and peppered sauce.", price:"₦8,000", open:"Grilled platter time! \uD83D\uDD25\uD83C\uDF57", image:"", alt:"", badge:"" },
+  { name:"Grilled Platter (Extra Bole)", desc:"A grilled platter with extra bole.", price:"₦10,000", open:"Grilled platter with extra bole, please! \uD83D\uDD25\uD83D\uDE0B", image:"", alt:"", badge:"" },
+  { name:"Full House", desc:"1 catfish, 1 drumstick, 2 bole, chips, coleslaw and peppered sauce.", price:"₦15,000", open:"I\u2019m going all in today! \uD83D\uDE0B\uD83D\uDD25", image:"", alt:"", badge:"" }
 ];
-
-/* =====================================================
-   2b. EDIT HERE: COMBO MEALS (8 slots, ready for your real combos)
-   Leave name "" and the card shows "Coming soon" (no order button).
-   Fill in a real combo: name, desc, price (optional), image, badge (optional, only if TRUE), open (optional WhatsApp first line).
-   ===================================================== */
+const SPECIALS = [
+  { name:"Bole We Dey Bang!", desc:"Details coming soon. Message us to ask what\u2019s in it.", price:"₦8,000", open:"BOLE WE DEY BANG! \uD83D\uDD25\uD83D\uDE0B", image:"", alt:"", badge:"" },
+  { name:"De Golden Yam", desc:"1 round yam with shredded cheese, boneless chicken, ketchup, vegetable toppings and peppered sauce.", price:"₦5,000", open:"I want that golden yam! \uD83D\uDE0B", image:"", alt:"", badge:"" },
+  { name:"Loaded Fries", desc:"Loaded fries, made with potato, plantain, or both.", price:"₦5,000", open:"Loaded fries, please! \uD83D\uDE0B\uD83C\uDF5F", image:"loaded-fries.jpg", alt:"Sample photo of loaded fries with melted cheese and other toppings", badge:"",opts:["Potato", "Plantain", "Both"] }
+];
 const COMBOS = [
-  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
-  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
-  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
-  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
-  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
-  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
-  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" },
-  { name:"", desc:"", price:"", image:"", alt:"", badge:"", open:"" }
+  { name:"Chips Combo", desc:"Chips with your choice of chicken or fish.", price:"₦5,000", open:"I\u2019m craving a proper chips combo! \uD83C\uDF5F\uD83C\uDF57", image:"chicken-chips.jpg", alt:"Glazed chicken wings served with potato wedges and a creamy dip on a white plate", badge:"",opts:["Chicken", "Fish"] },
+  { name:"Chicken Mixed Combo", desc:"Chicken lap or 2 fishes, with potato or yam chips, ketchup and coleslaw.", price:"₦6,000", open:"Chicken mixed combo, please! \uD83C\uDF57\uD83D\uDE0B", image:"", alt:"", badge:"",opts:["Chicken", "Fish"] },
+  { name:"Bole Combo", desc:"Chicken or fish with 1 big bole and kponmo.", price:"₦5,000", open:"That bole combo is calling me! \uD83D\uDE0B\uD83D\uDD25", image:"bole.jpg", alt:"Plantain pieces in a white bowl with red pepper sauce", badge:"",opts:["Chicken", "Fish"] },
+  { name:"Native Combo", desc:"Details coming soon. Message us to ask what\u2019s in it.", price:"₦5,000", open:"I\u2019m ready for a Native Combo! \uD83D\uDE0B", image:"", alt:"", badge:"" }
 ];
+/* Sides & extras: a simple price list shown under the combos. Edit freely. */
+const EXTRAS = [
+  ["Bole","\u20A61,000 / \u20A61,500"],["Fish","\u20A62,000"],["Extra chips","\u20A6500"],["Ugba","\u20A6500"],
+  ["Chicken lap","\u20A63,500"],["Chicken drumstick","\u20A61,000"],["Chicken breast","\u20A64,500"],["Extra kponmo sauce","\u20A61,000"]
+];
+document.getElementById("heroNote").textContent = COMBOS.length+" combo meals, "+SPECIALS.length+" signature dishes and a barbecue menu.";
+const MENU = GRILL.concat(SPECIALS,COMBOS); // used by the multi-item order form
 
 /* =====================================================
    3. EDIT HERE: CUSTOMER REVIEWS (REAL ONES ONLY)
@@ -483,8 +502,7 @@ if(!ready) console.warn(N + ": set CONFIG.whatsapp to your number (digits only, 
 
 const toast = msg => { const t=$("#toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toast.t); toast.t=setTimeout(()=>t.classList.remove("show"),4200); };
 const askLine = d => d.price ? "Please confirm it\u2019s available today." : "What\u2019s available today, and how much is it?";
-const dishMsg = d => `Hello ${N}! ${d.open||"I\u2019m ready to order!"} I\u2019d like to order the ${d.name}${d.price?" ("+d.price+")":""}. ${askLine(d)}`;
-const comboMsg = d => `Hello ${N}! ${d.open||"I\u2019m ready for this combo! \uD83D\uDE0B"} I\u2019d like to order the ${d.name}${d.price?" ("+d.price+")":""}. ${askLine(d)}`;
+const itemMsg = (d,opt) => `Hello ${N}! ${d.open||"I\u2019m ready to order!"} I\u2019d like to order the ${d.name}${(opt||d.price)?" ("+[opt,d.price].filter(Boolean).join(", ")+")":""}. ${askLine(d)}`;
 
 /* Branding */
 document.title = N + " | " + CONFIG.tagline.replace(/\.$/,"");
@@ -495,23 +513,20 @@ $("#heroTag").textContent = CONFIG.tagline.replace(/\.$/,"");
 $("#fBrand").innerHTML = LOGO+"<span>"+esc(N)+"</span>"; $("#fTag").textContent = CONFIG.tagline; $("#fBrand2").textContent = N;
 $("#yr").textContent = new Date().getFullYear();
 
-/* Menu */
-$("#menuGrid").innerHTML = MENU.map((d,i)=>`
-  <article class="dish rv">
-    <div class="dish-img rvi" data-i="${i}">${d.image?`<img src="${esc(d.image)}" alt="${esc(d.alt||d.name)}" loading="lazy" width="500" height="400">`:`<div><b>${pad(i)}</b><small>Photo coming soon</small></div>`}</div>
-    <div class="dish-body">
-      <h3>${esc(d.name)}</h3><p>${esc(d.desc)}</p>
-      <div class="dish-foot"><span class="price">${esc(d.price||"Ask for today\u2019s price")}</span>
-      <a class="btn btn-line" data-wa href="${esc(waLink(dishMsg(d))||"#order")}"${ready?' target="_blank" rel="noopener"':""} aria-label="Order ${esc(d.name)} on WhatsApp">Order</a></div>
-    </div>
-  </article>`).join("");
-
-/* Combos */
-$("#comboGrid").innerHTML = COMBOS.map((c,i)=>{ const real=!!c.name.trim(), nm=real?c.name:"Combo "+pad(i);
-  return `<article class="dish combo rv${real?"":" soon"}">
-    <div class="dish-img rvi">${c.badge?`<span class="badge">${esc(c.badge)}</span>`:""}${c.image?`<img src="${esc(c.image)}" alt="${esc(c.alt||nm)}" loading="lazy" width="500" height="500">`:`<div><b>${pad(i)}</b><small>${real?"Photo coming soon":"Details coming soon"}</small></div>`}</div>
-    <div class="dish-body"><h3>${esc(nm)}</h3><p>${esc(c.desc||(real?"":"Combo details will be added soon."))}</p>
-      <div class="dish-foot">${real?`<span class="price">${esc(c.price||"Ask for today\u2019s price")}</span><a class="btn btn-line" data-wa href="${esc(waLink(comboMsg(c))||"#order")}"${ready?' target="_blank" rel="noopener"':""} aria-label="Order ${esc(nm)} on WhatsApp">Order</a>`:`<span class="btn btn-line is-soon" aria-disabled="true">Coming soon</span>`}</div></div></article>`; }).join("");
+/* Cards: combos + specials share one renderer (numbers 01, 02... appear as you scroll) */
+const card=(d,i,src,cls)=>`<article class="dish ${cls} rv" data-src="${src}" data-k="${i}">
+  <div class="dish-img rvi"><span class="num">${pad(i)}</span>${d.badge?`<span class="badge">${esc(d.badge)}</span>`:""}${d.image?`<img src="${esc(d.image)}" alt="${esc(d.alt||d.name)}" loading="lazy" width="500" height="400">`:`<div><b>${pad(i)}</b><small>Photo coming soon</small></div>`}</div>
+  <div class="dish-body"><h3>${esc(d.name)}</h3><p>${esc(d.desc)}</p>
+    ${d.opts?`<select class="opt" aria-label="Choose for ${esc(d.name)}"><option value="">Choose one</option>${d.opts.map(o=>`<option>${esc(o)}</option>`).join("")}</select>`:""}
+    <div class="dish-foot"><span class="price">${esc(d.price||"Ask for today\u2019s price")}</span>
+    <a class="btn btn-line" data-wa href="${esc(waLink(itemMsg(d))||"#order")}"${ready?' target="_blank" rel="noopener"':""} aria-label="Order ${esc(d.name)} on WhatsApp">Order</a></div></div></article>`;
+$("#comboGrid").innerHTML = COMBOS.map((d,i)=>card(d,i,"c","combo")).join("");
+$("#grillGrid").innerHTML = GRILL.map((d,i)=>card(d,i,"g","")).join("");
+$("#menuGrid").innerHTML = SPECIALS.map((d,i)=>card(d,i,"s","")).join("");
+$("#extrasList").innerHTML = EXTRAS.map(x=>`<li><span>${esc(x[0])}</span><b>${esc(x[1])}</b></li>`).join("");
+document.addEventListener("change",e=>{ if(!e.target.classList.contains("opt")) return;
+  const a=e.target.closest(".dish"), d=({c:COMBOS,s:SPECIALS,g:GRILL})[a.dataset.src][a.dataset.k];
+  a.querySelector("[data-wa]").href = waLink(itemMsg(d,e.target.value))||"#order"; });
 
 /* Motion: scroll reveals (content stays visible if anything fails or motion is reduced) */
 try{
@@ -527,6 +542,11 @@ try{
     setTimeout(()=>els.forEach(el=>el.classList.add("in")),4000);
   }
 }catch(err){ console.warn("Motion off:",err); }
+
+/* Highlight the tab for the section on screen */
+try{ const secs=["grill","menu","combos"].map(i=>document.getElementById(i));
+  const tio=new IntersectionObserver(es=>es.forEach(x=>{ if(x.isIntersecting) document.querySelectorAll(".tabs a").forEach(a=>a.setAttribute("aria-current",String(a.getAttribute("href")==="#"+x.target.id))); }),{rootMargin:"-45% 0px -50% 0px"});
+  secs.forEach(s=>s&&tio.observe(s)); }catch(err){}
 
 /* Order form with quantities */
 $("#checks").innerHTML = MENU.map((d,i)=>`
@@ -601,7 +621,7 @@ $("#fContact").innerHTML =
   (wn?`<span class="row">WhatsApp: <a href="${esc(waLink("Hello "+N+"! I\u2019d like to ask about your menu."))}" target="_blank" rel="noopener">+${wn}</a></span>`:"")
   + row("Email",CONFIG.email,CONFIG.email?"mailto:"+CONFIG.email:"") + row("Location",CONFIG.location) + row("Hours",CONFIG.hours);
 const soc=(n,u)=>/^https?:\/\//.test(u)?`<a href="${esc(u)}" target="_blank" rel="noopener">${n}</a>`:"";
-$("#fSocial").innerHTML = soc("Instagram",CONFIG.instagram)+soc("TikTok",CONFIG.tiktok)+soc("Facebook",CONFIG.facebook);
+$("#fSocial").innerHTML = soc("Instagram",CONFIG.instagram)+soc("TikTok",CONFIG.tiktok);
 if(!$("#fSocial").innerHTML.trim()) $("#fSocial").parentElement.hidden = true;
 
 $("#orderForm").addEventListener("submit",e=>e.preventDefault());
